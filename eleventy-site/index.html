@@ -1,0 +1,22 @@
+---
+title: Giffleball
+images:
+  - 😕.gif
+  - 4chan.gif
+  - parrot.gif
+---
+<!doctype html>
+<html>
+	<head>
+		<title>{{ title }}</title>
+	</head>
+	<body>
+		<h1>{{ title }}</h1>
+		<ul>
+		  {%- for filename in images -%}
+		   {%- capture path -%}img/{{ filename }}{%- endcapture -%}
+			<li><a href="img/{{ filename | url_encode }}">{{ filename }}</a> {{ path | filesize }}</li>
+		  {%- endfor -%}
+		</ul>
+	</body>
+</html>
