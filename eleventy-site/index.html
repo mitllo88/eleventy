@@ -1,22 +1,8 @@
 ---
-title: Giffleball
-images:
-  - 😕.gif
-  - 4chan.gif
-  - parrot.gif
+layout: layout.liquid
+pageTitle: Welcome to my blog
 ---
-<!doctype html>
-<html>
-	<head>
-		<title>{{ title }}</title>
-	</head>
-	<body>
-		<h1>{{ title }}</h1>
-		<ul>
-		  {%- for filename in images -%}
-		   {%- capture path -%}img/{{ filename }}{%- endcapture -%}
-			<li><a href="img/{{ filename | url_encode }}">{{ filename }}</a> {{ path | filesize }}</li>
-		  {%- endfor -%}
-		</ul>
-	</body>
-</html>
+{% for post in collections.posts %}
+    <h2><a href="{{ post.url }}">{{ post.data.pageTitle }}</a></h2>
+    <em>{{ post.date | date: "%Y-%m-%d" }}</em>
+{% endfor %}
