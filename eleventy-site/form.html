@@ -1,0 +1,27 @@
+---
+layout: layout.liquid
+pageTitle: Form
+---
+<h4>Enter something.</h4>
+
+<form id="form1">
+	Enter text: <input type="text" name="fname" id="textvalue">
+	<input type="button" onclick="inputText()" value="Submit">
+	<input type="button" onClick="changeColour()" value="Change Colour">
+</form>
+
+<script>
+	function inputText() {
+		alert(document.getElementById("textvalue").value);
+	}
+	
+	function changeColour() {
+		var x = Math.floor(Math.random() * 256);
+		var y = Math.floor(Math.random() * 256);
+		var z = Math.floor(Math.random() * 256);
+		var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+
+		document.body.style.background = bgColor;
+
+	}
+</script>
